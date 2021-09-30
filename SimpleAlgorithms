@@ -1,0 +1,56 @@
+import java.util.*;
+public class Algo {
+
+	
+	
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Random rnd = new Random();
+		System.out.println("Enter a");
+		float a = in.nextFloat();
+		System.out.println("Enter b");
+		float b = in.nextFloat();
+		System.out.println("Enter c");
+		float c = in.nextFloat();
+		int n = 20;
+		
+		float[] arr = new float[n];
+		for(int i = 0; i<n; i++) {
+			float rand = rnd.nextFloat();
+			arr[i] = rand;
+			System.out.print(rand+" ");
+		}
+		float[] y = new float[20];
+		for(int i = 0; i<n; i++) {
+			if(arr[i]<=0.5) {
+				y[i] = -(float) (a*arr[i]+b*Math.cos(arr[i])+c);
+				
+			}
+			else {
+				y[i] = -(float) (b*arr[i]*arr[i]+c*Math.sin(2*arr[i]));
+			}
+		}
+		for(int i = 0; i<n; i++) {
+			System.out.println(" y"+i+": "+y[i]);
+				
+			}
+		
+		float sum = 0; 
+		float pr = 1;
+		
+		for(int i = 0; i<n; i++) {
+			if(y[i]>1.75) {
+				pr*=y[i];
+				
+			}else {
+				sum+=y[i];
+			}
+				
+			}
+		System.out.println("Sum "+sum+" pr "+pr);
+		
+		
+
+	}
+
+}
